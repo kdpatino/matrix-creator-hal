@@ -20,6 +20,7 @@
 
 #include <memory>
 #include <string>
+
 #include "./matrixio_bus.h"
 
 namespace matrix_hal {

@@ -19,6 +19,7 @@
 #define CPP_DRIVER_BUS_H_
 
 #include <stdint.h>
+
 #include <mutex>
 #include <string>
 

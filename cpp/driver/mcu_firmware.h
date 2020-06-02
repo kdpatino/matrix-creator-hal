@@ -19,6 +19,7 @@
 #define CPP_DRIVER_MCU_FIRMWARE_H_
 
 #include <string>
+
 #include "./fw_data.h"
 #include "./matrix_driver.h"
 

@@ -63,12 +63,11 @@ class MicrophoneArray : public MatrixDriver {
   }
 
   int16_t &At(int16_t sample, int16_t channel) {
-    if (!enable_beamforming_)
-      return Raw(sample, channel);
+    if (!enable_beamforming_) return Raw(sample, channel);
     return delayed_data_[sample * kMicrophoneChannels + channel];
   }
 
-  //call at own peril if beamforming is disabled
+  // call at own peril if beamforming is disabled
   int16_t &Beam(int16_t sample) { return beamformed_[sample]; }
 
   void CalculateDelays(float azimutal_angle, float polar_angle,

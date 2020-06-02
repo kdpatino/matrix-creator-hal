@@ -19,6 +19,7 @@
 #define CPP_DRIVER_IMU_SENSOR_H_
 
 #include <string>
+
 #include "./imu_data.h"
 #include "./matrix_driver.h"
 

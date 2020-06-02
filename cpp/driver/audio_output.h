@@ -19,6 +19,7 @@
 #define CPP_DRIVER_AUDIO_OUTPUT_H_
 
 #include <string>
+
 #include "./matrix_driver.h"
 
 namespace matrix_hal {

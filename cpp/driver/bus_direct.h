@@ -19,8 +19,10 @@
 #define CPP_DRIVER_BUS_DIRECT_H_
 
 #include <stdint.h>
+
 #include <mutex>
 #include <string>
+
 #include "./bus.h"
 
 namespace matrix_hal {

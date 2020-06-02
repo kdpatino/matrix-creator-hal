@@ -19,6 +19,7 @@
 #define CPP_DRIVER_ZWAVE_GPIO_H_
 #include <cstdint>
 #include <vector>
+
 #include "./matrix_driver.h"
 
 namespace matrix_hal {

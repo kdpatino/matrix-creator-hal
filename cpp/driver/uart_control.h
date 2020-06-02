@@ -19,6 +19,7 @@
 #define CPP_DRIVER_UART_CONTROL_H_
 #include <cstdint>
 #include <vector>
+
 #include "./matrix_driver.h"
 
 namespace matrix_hal {
