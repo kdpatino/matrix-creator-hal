@@ -1,5 +1,3 @@
-#include "cpp/driver/microphone_core.h"
-
 #include <unistd.h>
 
 #include <iostream>
@@ -9,6 +7,7 @@
 #include "cpp/driver/creator_memory_map.h"
 #include "cpp/driver/microphone_array.h"
 #include "cpp/driver/microphone_core_fir.h"
+#include "cpp/driver/microphone_core.h"
 
 namespace matrix_hal {
 

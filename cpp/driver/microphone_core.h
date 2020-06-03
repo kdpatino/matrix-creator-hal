@@ -42,8 +42,8 @@ class MicrophoneCore : public MatrixDriver {
 
  private:
   MicrophoneArray &mics_;
-  std::valarray<int16_t> fir_coeff_;
   bool is_FIR_activate_;
+  std::valarray<int16_t> fir_coeff_;
 };
 };      // namespace matrix_hal
 #endif  // CPP_DRIVER_MICROPHONE_ARRAY_H_
