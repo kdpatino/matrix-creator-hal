@@ -39,7 +39,7 @@ int main(int argc, char *agrv[]) {
   int seconds_to_record = FLAGS_duration;
 
   // Microhone Array Configuration
-  hal::MicrophoneArray mics;
+  hal::MicrophoneArray mics(false);  // disable beamforming
   mics.Setup(&bus);
   mics.SetSamplingRate(sampling_rate);
   if (FLAGS_gain > 0) mics.SetGain(FLAGS_gain);
@@ -50,18 +50,15 @@ int main(int argc, char *agrv[]) {
   // Microphone Core Init
   hal::MicrophoneCore mic_core(mics);
   mic_core.Setup(&bus);
-  mic_core.SelectFIRCoeff(true);
+  mic_core.SelectFIRCoeff(false);
 
-  int16_t buffer[mics.Channels() + 1]
-                [mics.SamplingRate() + mics.NumberOfSamples()];
+  int16_t buffer[mics.Channels()][mics.SamplingRate() + mics.NumberOfSamples()];
 
-  mics.CalculateDelays(0, 0, 1000, 320 * 1000);
+  std::ofstream os[mics.Channels()];
 
-  std::ofstream os[mics.Channels() + 1];
-
-  for (uint16_t c = 0; c < mics.Channels() + 1; c++) {
+  for (uint16_t c = 0; c < mics.Channels(); c++) {
     std::string filename = "mic_" + std::to_string(mics.SamplingRate()) +
-                           "_s16le_channel_" + std::to_string(c) + ".raw";
+                           "_raw_s16le_channel_" + std::to_string(c) + ".raw";
     os[c].open(filename, std::ofstream::binary);
   }
 
@@ -96,15 +93,14 @@ int main(int argc, char *agrv[]) {
       /* buffering */
       for (uint32_t s = 0; s < mics.NumberOfSamples(); s++) {
         for (uint16_t c = 0; c < mics.Channels(); c++) { /* mics.Channels()=8 */
-          buffer[c][samples] = mics.At(s, c);
+          buffer[c][samples] = mics.Raw(s, c);
         }
-        buffer[mics.Channels()][samples] = mics.Beam(s);
         samples++;
       }
 
       /* write to file */
       if (samples >= mics.SamplingRate()) {
-        for (uint16_t c = 0; c < mics.Channels() + 1; c++) {
+        for (uint16_t c = 0; c < mics.Channels(); c++) {
           os[c].write((const char *)buffer[c], samples * sizeof(int16_t));
         }
         samples = 0;
