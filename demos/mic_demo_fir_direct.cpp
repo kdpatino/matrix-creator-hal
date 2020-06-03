@@ -2,9 +2,8 @@
  * Copyright 2017 <Admobilize>
  * All rights reserved.
  */
-
-#include <wiringPi.h>
 #include <gflags/gflags.h>
+#include <wiringPi.h>
 
 #include <fstream>
 #include <iostream>
