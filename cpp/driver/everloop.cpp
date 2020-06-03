@@ -15,8 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "cpp/driver/everloop.h"
-
 #include <unistd.h>
 
 #include <iostream>
@@ -24,6 +22,7 @@
 #include <valarray>
 
 #include "cpp/driver/creator_memory_map.h"
+#include "cpp/driver/everloop.h"
 
 namespace matrix_hal {
 

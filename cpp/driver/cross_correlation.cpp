@@ -15,10 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "cpp/driver/cross_correlation.h"
-
 #include <cstring>
 
+#include "cpp/driver/cross_correlation.h"
 namespace matrix_hal {
 
 CrossCorrelation::CrossCorrelation()

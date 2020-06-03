@@ -15,8 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "cpp/driver/bus_direct.h"
-
 #include <errno.h>
 #include <fcntl.h>
 #include <linux/spi/spidev.h>
@@ -34,6 +32,8 @@
 #include <string>
 
 #include "cpp/driver/creator_memory_map.h"
+#include "cpp/driver/bus_direct.h"
+
 
 namespace matrix_hal {
 

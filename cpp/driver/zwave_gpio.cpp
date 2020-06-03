@@ -15,11 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "cpp/driver/zwave_gpio.h"
-
 #include <iostream>
 #include <string>
 
+#include "cpp/driver/zwave_gpio.h"
 #include "cpp/driver/creator_memory_map.h"
 
 namespace matrix_hal {

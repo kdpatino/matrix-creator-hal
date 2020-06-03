@@ -15,8 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "cpp/driver/microphone_array.h"
-
 #include <wiringPi.h>
 
 #include <cmath>
@@ -31,6 +29,8 @@
 
 #include "cpp/driver/creator_memory_map.h"
 #include "cpp/driver/microphone_array_location.h"
+#include "cpp/driver/microphone_array.h"
+
 
 static std::mutex irq_m;
 static std::condition_variable irq_cv;
