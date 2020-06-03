@@ -3,8 +3,8 @@
  * All rights reserved.
  */
 
-#include <gflags/gflags.h>
 #include <wiringPi.h>
+#include <gflags/gflags.h>
 
 #include <fstream>
 #include <iostream>
@@ -17,7 +17,6 @@
 #include "../cpp/driver/matrixio_bus.h"
 #include "../cpp/driver/microphone_array.h"
 #include "../cpp/driver/microphone_core.h"
-#include "./band_pass_coeff.h"
 
 DEFINE_int32(sampling_frequency, 16000, "Sampling Frequency");
 DEFINE_int32(duration, 5, "Interrupt after N seconds");

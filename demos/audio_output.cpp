@@ -15,8 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "../cpp/driver/audio_output.h"
-
 #include <gflags/gflags.h>
 
 #include <fstream>
@@ -24,6 +22,7 @@
 #include <valarray>
 
 #include "../cpp/driver/matrixio_bus.h"
+#include "../cpp/driver/audio_output.h"
 
 DEFINE_int32(
     sampling_frequency, 44100,
