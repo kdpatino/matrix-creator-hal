@@ -28,11 +28,6 @@
 
 namespace matrix_hal {
 
-struct FIRCoeff {
-  uint32_t rate_;
-  std::valarray<int16_t> coeff_;
-};
-
 const uint16_t kNumberFIRTaps = 128;
 
 class MicrophoneCore : public MatrixDriver {
@@ -42,12 +37,13 @@ class MicrophoneCore : public MatrixDriver {
   void Setup(MatrixIOBus *bus);
   bool SetFIRCoeff();
   bool SetCustomFIRCoeff(const std::valarray<int16_t> custom_fir);
-  bool SelectFIRCoeff(FIRCoeff *FIR_coeff);
+  bool SelectFIRCoeff(bool activate_compensation_filter);
   bool SetFIRCoeff(const std::valarray<int16_t> custom_fir);
 
  private:
   MicrophoneArray &mics_;
   std::valarray<int16_t> fir_coeff_;
+  bool is_FIR_activate_;
 };
 };      // namespace matrix_hal
 #endif  // CPP_DRIVER_MICROPHONE_ARRAY_H_
