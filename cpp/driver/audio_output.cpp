@@ -15,11 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "cpp/driver/audio_output.h"
+
 #include <string>
 #include <thread>
 #include <valarray>
 
-#include "cpp/driver/audio_output.h"
 #include "cpp/driver/creator_memory_map.h"
 
 namespace matrix_hal {

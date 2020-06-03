@@ -15,12 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "../cpp/driver/audio_output.h"
+
 #include <gflags/gflags.h>
+
 #include <fstream>
 #include <iostream>
 #include <valarray>
 
-#include "../cpp/driver/audio_output.h"
 #include "../cpp/driver/matrixio_bus.h"
 
 DEFINE_int32(

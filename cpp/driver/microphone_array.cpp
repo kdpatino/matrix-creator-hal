@@ -15,7 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "cpp/driver/microphone_array.h"
+
 #include <wiringPi.h>
+
 #include <cmath>
 #include <condition_variable>
 #include <cstdint>
@@ -27,7 +30,6 @@
 #include <valarray>
 
 #include "cpp/driver/creator_memory_map.h"
-#include "cpp/driver/microphone_array.h"
 #include "cpp/driver/microphone_array_location.h"
 
 static std::mutex irq_m;
@@ -38,11 +40,13 @@ void irq_callback(void) { irq_cv.notify_all(); }
 namespace matrix_hal {
 
 MicrophoneArray::MicrophoneArray(bool enable_beamforming)
-    : lock_(irq_m), gain_(3), sampling_frequency_(16000), enable_beamforming_(enable_beamforming) {
+    : lock_(irq_m),
+      gain_(3),
+      sampling_frequency_(16000),
+      enable_beamforming_(enable_beamforming) {
   raw_data_.resize(kMicarrayBufferSize);
 
-  if (enable_beamforming_)
-  {
+  if (enable_beamforming_) {
     delayed_data_.resize(kMicarrayBufferSize);
 
     fifos_.resize(kMicrophoneChannels);
@@ -79,8 +83,7 @@ bool MicrophoneArray::Read() {
     return false;
   }
 
-  if (enable_beamforming_)
-  {
+  if (enable_beamforming_) {
     for (uint32_t s = 0; s < NumberOfSamples(); s++) {
       int sum = 0;
       for (int c = 0; c < kMicrophoneChannels; c++) {

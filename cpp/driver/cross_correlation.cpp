@@ -16,6 +16,7 @@
  */
 
 #include "cpp/driver/cross_correlation.h"
+
 #include <cstring>
 
 namespace matrix_hal {

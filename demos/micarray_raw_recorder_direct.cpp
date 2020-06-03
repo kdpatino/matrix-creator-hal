@@ -1,7 +1,7 @@
 /*
  * Copyright 2017 <Admobilize>
  * All rights reserved.
- * 
+ *
  * Modified 8/17/19 by founta to record raw audio
  */
 
@@ -42,7 +42,7 @@ int main(int argc, char *agrv[]) {
   int seconds_to_record = FLAGS_duration;
 
   // Microhone Array Configuration
-  hal::MicrophoneArray mics(false); //disable beamforming
+  hal::MicrophoneArray mics(false);  // disable beamforming
   mics.Setup(&bus);
   mics.SetSamplingRate(sampling_rate);
   if (FLAGS_gain > 0) mics.SetGain(FLAGS_gain);
@@ -54,8 +54,7 @@ int main(int argc, char *agrv[]) {
   hal::MicrophoneCore mic_core(mics);
   mic_core.Setup(&bus);
 
-  int16_t buffer[mics.Channels()]
-                [mics.SamplingRate() + mics.NumberOfSamples()];
+  int16_t buffer[mics.Channels()][mics.SamplingRate() + mics.NumberOfSamples()];
 
   std::ofstream os[mics.Channels()];
 
@@ -67,7 +66,6 @@ int main(int argc, char *agrv[]) {
 
   std::thread et(
       [seconds_to_record](hal::MatrixIOBus *bus) {
-
         hal::Everloop everloop;
         everloop.Setup(bus);
 

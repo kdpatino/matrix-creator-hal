@@ -1,16 +1,19 @@
+#include "cpp/driver/microphone_core.h"
+
 #include <unistd.h>
+
 #include <iostream>
 #include <string>
 #include <valarray>
 
 #include "cpp/driver/creator_memory_map.h"
 #include "cpp/driver/microphone_array.h"
-#include "cpp/driver/microphone_core.h"
 #include "cpp/driver/microphone_core_fir.h"
 
 namespace matrix_hal {
 
-MicrophoneCore::MicrophoneCore(MicrophoneArray &mics) : mics_(mics),is_FIR_activate_(true) {
+MicrophoneCore::MicrophoneCore(MicrophoneArray &mics)
+    : mics_(mics), is_FIR_activate_(true) {
   fir_coeff_.resize(kNumberFIRTaps);
 }
 
@@ -41,9 +44,9 @@ bool MicrophoneCore::SetCustomFIRCoeff(
 bool MicrophoneCore::SelectFIRCoeff(bool activate_compensation_filter) {
   is_FIR_activate_ = activate_compensation_filter;
 
-  if(is_FIR_activate_){
+  if (is_FIR_activate_) {
     fir_coeff_ = FIR_default;
-  }else{
+  } else {
     fir_coeff_ = without_filter;
   }
   return SetFIRCoeff();

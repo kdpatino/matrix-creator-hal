@@ -15,12 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "cpp/driver/direction_of_arrival.h"
+
 #include <cmath>
 #include <map>
 #include <string>
 
 #include "cpp/driver/cross_correlation.h"
-#include "cpp/driver/direction_of_arrival.h"
 #include "cpp/driver/microphone_array_location.h"
 
 namespace matrix_hal {

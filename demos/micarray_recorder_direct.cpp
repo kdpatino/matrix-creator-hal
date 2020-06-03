@@ -67,7 +67,6 @@ int main(int argc, char *agrv[]) {
 
   std::thread et(
       [seconds_to_record](hal::MatrixIOBus *bus) {
-
         hal::Everloop everloop;
         everloop.Setup(bus);
 

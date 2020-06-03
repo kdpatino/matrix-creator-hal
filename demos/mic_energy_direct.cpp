@@ -3,9 +3,9 @@
  * All rights reserved.
  */
 #include <gflags/gflags.h>
+#include <unistd.h>
 #include <wiringPi.h>
 
-#include <unistd.h>
 #include <iostream>
 #include <string>
 #include <valarray>

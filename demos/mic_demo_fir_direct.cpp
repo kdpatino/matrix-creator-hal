@@ -17,7 +17,6 @@
 #include "../cpp/driver/matrixio_bus.h"
 #include "../cpp/driver/microphone_array.h"
 #include "../cpp/driver/microphone_core.h"
-
 #include "./band_pass_coeff.h"
 
 DEFINE_int32(sampling_frequency, 16000, "Sampling Frequency");
@@ -53,7 +52,7 @@ int main(int argc, char *agrv[]) {
   // Microphone Core Init
   hal::MicrophoneCore mic_core(mics);
   mic_core.Setup(&bus);
-  mic_core.SelectFIRCoeff(&FIR_bandpass[0]);
+  mic_core.SelectFIRCoeff(true);
 
   int16_t buffer[mics.Channels() + 1]
                 [mics.SamplingRate() + mics.NumberOfSamples()];
@@ -70,7 +69,6 @@ int main(int argc, char *agrv[]) {
 
   std::thread et(
       [seconds_to_record](hal::MatrixIOBus *bus) {
-
         hal::Everloop everloop;
         everloop.Setup(bus);
 

@@ -16,7 +16,6 @@
  */
 
 #include "cpp/driver/bus_kernel.h"
-#include "cpp/driver/creator_memory_map.h"
 
 #include <errno.h>
 #include <fcntl.h>
@@ -26,8 +25,11 @@
 #include <sys/ioctl.h>
 #include <sys/types.h>
 #include <unistd.h>
+
 #include <iostream>
 #include <string>
+
+#include "cpp/driver/creator_memory_map.h"
 
 namespace matrix_hal {
 
